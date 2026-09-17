@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="桃太郎の基準ルートをたどる、ブラウザで遊べる小さなノベルゲーム。"
+    />
+    <title>桃太郎｜基準ルート</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23151d3a'/%3E%3Cpath d='M32 50C17 44 12 31 18 20c5-9 15-11 14-11s9 2 14 11c6 11 1 24-14 30Z' fill='%23f4a77d'/%3E%3Cpath d='M32 14c-3-5-8-6-11-4 2 5 6 7 11 7 5 0 9-2 11-7-3-2-8-1-11 4Z' fill='%235d9a6f'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="桃太郎 基準ルートの先頭へ">
+          <span class="brand-mark" aria-hidden="true">桃</span>
+          <span class="brand-copy">
+            <span class="eyebrow">基準ルート / 01</span>
+            <span class="brand-title">桃太郎</span>
+          </span>
+        </a>
+        <div class="topbar-actions">
+          <span class="route-note">正しい選択だけが物語を進めます</span>
+          <button class="quiet-button" id="restartButton" type="button">最初から</button>
+        </div>
+      </header>
+
+      <main class="game-layout">
+        <section class="play-column" aria-label="桃太郎ノベルゲーム">
+          <div class="scene-card">
+            <div class="scene-header">
+              <div>
+                <span class="scene-kicker" id="sceneKicker">プロローグ</span>
+                <h1 id="sceneTitle">桃から生まれた子</h1>
+              </div>
+              <span class="scene-counter" id="sceneCounter">01 / 10</span>
+            </div>
+
+            <div class="visual-stage" id="visualStage">
+              <div class="stage-glow" aria-hidden="true"></div>
+              <div class="stage-caption" id="stageCaption">川辺の村</div>
+              <div class="stage-badge" id="stageBadge">基準ルート</div>
+              <img id="characterImage" class="character-image" alt="" />
+              <div class="treasure-mark" id="treasureMark" aria-hidden="true">宝</div>
+            </div>
+
+            <div class="dialogue-panel">
+              <div class="dialogue-heading">
+                <span class="speaker-name" id="speakerName">語り</span>
+                <span class="dialogue-tag" id="dialogueTag">物語</span>
+              </div>
+              <p class="dialogue-text" id="dialogueText" aria-live="polite"></p>
+              <p class="notice" id="notice" aria-live="polite"></p>
+              <div class="choices" id="choices" aria-label="選択肢"></div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="side-column" aria-label="旅の情報">
+          <section class="side-card inventory-card">
+            <div class="side-card-heading">
+              <div>
+                <span class="card-kicker">INVENTORY</span>
+                <h2>持ちもの</h2>
+              </div>
+              <span class="inventory-count" id="inventoryCount">0 / 3</span>
+            </div>
+            <div class="inventory-item">
+              <div class="item-image-wrap">
+                <img src="assets/items/kibidango.png" alt="きびだんご" />
+              </div>
+              <div>
+                <strong>きびだんご</strong>
+                <p id="inventoryCopy">おばあさんが作ってくれる旅のおとも。</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="side-card party-card">
+            <div class="side-card-heading">
+              <div>
+                <span class="card-kicker">PARTY</span>
+                <h2>仲間</h2>
+              </div>
+              <span class="party-count" id="partyCount">0 / 3</span>
+            </div>
+            <div class="party-list" id="partyList"></div>
+          </section>
+
+          <details class="side-card debug-card">
+            <summary>
+              <span>
+                <span class="card-kicker">STATE CHECK</span>
+                <strong>フラグ確認</strong>
+              </span>
+              <span class="summary-chevron" aria-hidden="true">⌄</span>
+            </summary>
+            <div class="flag-list" id="flagList"></div>
+          </details>
+        </aside>
+      </main>
+
+      <footer class="footer-note">
+        <span>桃太郎の基準ルート</span>
+        <span>選択肢を選ぶと物語が進みます</span>
+      </footer>
+    </div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
